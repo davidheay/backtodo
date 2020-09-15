@@ -25,14 +25,11 @@ public class Persistencia {
     }
 
     public void add(String text) {
-        this.todos.add(new ToDo(text, 0));
+        this.todos.add(new ToDo(this.todos.size(), text, 0));
     }
 
-    public void actualizar(String text, Integer estado) {
-        for (ToDo toDo : todos)
-            if (toDo.getTexto().equals(text))
-                toDo.setEstado(estado);
-
+    public void actualizar(Integer indice, Integer estado) {
+        todos.get(indice).setEstado(estado);
     }
 
     public void borrar(String text) {

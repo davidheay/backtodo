@@ -1,5 +1,8 @@
 package com.backtoDo.BackToDo.Controllers;
 
+import java.util.List;
+
+import com.backtoDo.BackToDo.Model.ToDo;
 import com.backtoDo.BackToDo.Persistencia.Persistencia;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,26 +22,26 @@ public class IndexController {
     private Persistencia persistencia;
 
     @GetMapping("")
-    public String getData() {
-        return persistencia.getToDos().toString();
+    public List<ToDo> getData() {
+        return persistencia.getToDos();
     }
 
     @PostMapping("")
-    public String addToDo(@RequestParam String texto) {
+    public List<ToDo> addToDo(@RequestParam String texto) {
         persistencia.add(texto);
-        return persistencia.getToDos().toString();
+        return persistencia.getToDos();
     }
 
     @DeleteMapping("")
-    public String borrar(@RequestParam String texto) {
+    public List<ToDo> borrar(@RequestParam String texto) {
         persistencia.borrar(texto);
-        return persistencia.getToDos().toString();
+        return persistencia.getToDos();
     }
 
     @PutMapping("")
-    public String actualizar(@RequestParam String texto, @RequestParam Integer estado) {
-        persistencia.actualizar(texto, estado);
-        return persistencia.getToDos().toString();
+    public List<ToDo> actualizar(@RequestParam Integer indice, @RequestParam Integer estado) {
+        persistencia.actualizar(indice, estado);
+        return persistencia.getToDos();
     }
 
 }

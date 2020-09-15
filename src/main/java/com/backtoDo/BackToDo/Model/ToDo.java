@@ -2,10 +2,12 @@ package com.backtoDo.BackToDo.Model;
 
 public class ToDo {
 
+    private Integer indice;
     private String texto;
     private Integer estado;
 
-    public ToDo(String texto, Integer estado) {
+    public ToDo(Integer indice, String texto, Integer estado) {
+        this.indice = indice;
         this.texto = texto;
         this.estado = estado;
     }
@@ -26,8 +28,11 @@ public class ToDo {
         this.estado = estado;
     }
 
-    @Override
-    public String toString() {
-        return "ToDo [estado=" + estado + ", texto=" + texto + "]";
+    public Integer getIndice() {
+        return indice;
+    }
+
+    public void setIndice(Integer indice) {
+        this.indice = indice;
     }
 }
