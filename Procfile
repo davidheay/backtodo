@@ -1,0 +1,1 @@
+web: java -Dserver.port=$PORT -jar target/BackToDo-1.jar
